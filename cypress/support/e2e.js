@@ -15,3 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './CLogin.cy'
+import './CForms.cy'
+import './CCarrito.cy'

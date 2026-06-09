@@ -1,15 +1,13 @@
 describe('Inventario - Sauce Demo',()=>{
 
     beforeEach(()=>{
-    cy.visit('https://www.saucedemo.com/')
-    cy.get('[data-test="username"]').type('standard_user')
-    cy.get('[data-test="password"]').type('secret_sauce')
-    cy.get('[data-test="login-button"]').click()
+    cy.login('standard_user','secret_sauce')
+    cy.url().should('include','https://www.saucedemo.com/inventory.html')
     cy.url().should('include','https://www.saucedemo.com/inventory.html')
     })
 
     it('Verificar cantidad de productos en el inventario',()=>{
-        cy.get('[data-test="inventory-item-name"]').should('have.length',6)
+        cy.verificarValorCarrito(6)
     })
 
     it('Ordenar productos por precio (de menor a mayor)',()=>{
